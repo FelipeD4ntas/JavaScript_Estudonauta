@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Verificador de Idade</title>
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+
+    <main>
+        
+        <div class="box-form">
+            <label for="user_nasc">Ano de Nascimento:
+                <input type="number" id="user_nasc">
+            </label>
+            <label>Sexo:
+                <input type="radio" id="masculino" name="sexo" value="Masculino" checked>
+                <label for="masculino" class="bolinha">Masculino</label>
+                <input type="radio" id="feminino" name="sexo" value="Masculino">
+                <label for="feminino" class="bolinha">Feminino</label>
+            </label>
+            <button onclick="verificado()">VERIFICAR</button>
+
+            <div class="box-msg">
+                <span id="msg">Preencha os dados acima para ver o resultado!</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Página feita no curso de JavaScript<br>&copy;Estudonauta</p>
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>

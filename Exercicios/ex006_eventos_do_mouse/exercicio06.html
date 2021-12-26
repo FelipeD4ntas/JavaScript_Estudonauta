@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 006</title>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                text-transform: uppercase;
+                padding: 20px;
+            }
+            .eventos {
+                font-size: 1.5em;
+                text-align: center;
+                padding-bottom: 10px;
+            }
+            .box-area {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .box-eventos {
+                margin-bottom: 80px;
+            }
+            .area {
+                border: none;
+                background: green;
+                width: 200px;
+                height: 200px;
+                cursor: pointer;
+                font-size: 1.5em;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-area">
+            <h1>Eventos Dom</h1>
+            <div class="box-eventos">
+                <p class="eventos">onclick</p>
+                <button class="area" onclick="clicar()">
+                    <p>Clique Aqui</p>
+                </button>
+            </div>
+
+            <div class="box-eventos">
+                <p class="eventos">onmouseenter</p>
+                <p class="eventos">onmouseout</p>
+                <button class="area" onmouseenter="entrar()" onmouseout="saiu()">
+                    <p>Passe o Mouse</p>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            function clicar() {
+                var variavel = window.document.getElementsByClassName('area')[0];
+                variavel.innerText = 'Clicou!';
+                variavel.style.background = 'red';
+            }
+
+            function entrar() {
+                var variavel = window.document.getElementsByClassName('area')[1];
+                variavel.innerText = 'Entrou!';
+                variavel.style.background = 'red';
+            }
+            function saiu() {
+                var variavel = window.document.getElementsByClassName('area')[1];
+                variavel.innerText = 'Saiu!';
+                variavel.style.background = 'green';
+            }
+
+        </script>
+    </body>
+</html>

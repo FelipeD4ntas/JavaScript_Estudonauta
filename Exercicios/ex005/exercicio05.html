@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 005</title>
+        <style>
+            body {
+                background: rgb(68, 125, 199);
+                color: white;
+                font: normal 18pt arial;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Iniciando estudos com DOM</h1>
+        <p>Aqui vai o resultado</p>
+        <p class="p_dois">Aprendendo a usar o <strong>DOM</strong> em JavaScript</p>
+        <div>
+            <p>Clique em mim</p>
+        </div>
+        <script>
+            var p1 = document.getElementsByTagName('p')[0];
+            p1.style.background = 'green';
+
+            var p2 = document.getElementsByClassName('p_dois')[0];
+            p2.style.textDecoration = 'underline';
+            
+            var d = document.querySelector('div');
+            d.style.color = 'red';
+        </script>
+    </body>
+</html>

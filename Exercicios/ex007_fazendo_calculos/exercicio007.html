@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 007</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p {
+            display: inline-block;
+        }
+        .box-input {
+            margin: 0 60px;
+        }
+        input[type=number] {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        button {
+            width: 135px;
+            height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-soma">
+        <h1>Somando Valores</h1>
+        <div class="box-input">
+            <input type="number" id="n1">
+            <p>+</p>
+            <input type="number" id="n2">
+            <div>
+                <button onclick="soma()">Somar</button>
+            </div>
+        </div>
+        <div>
+            <p class="res"><strong>Resultado</strong></p>
+        </div>
+    </div>
+
+    <script>
+        function soma() {
+            var n1txt = document.getElementById('n1');
+            var n2txt = document.querySelector('#n2');
+            var res = document.getElementsByClassName('res')[0];
+            var n1 = Number(n1txt.value);
+            var n2 = Number(n2txt.value);
+            var soma = n1 + n2;
+            res.innerHTML = `A soma entre ${n1} e ${n2} é <strong>${soma}</strong>`;
+        }
+    </script>
+</body>
+</html>
