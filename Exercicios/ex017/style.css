@@ -15,6 +15,7 @@ body {
     background: #3F83D7 url('fundo.jpg');
     background-size: 100%;
     background-position: center;
+    overflow: hidden;
 }
 
 h1 {
