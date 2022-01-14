@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background: #3E82D6;
+}
+
+h1, p {
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+
+main {
+    margin: 0 calc((100% - 500px) / 2);
+    padding: 15px;
+    background: white;
+    border-radius: 6px;
+}
+
+#saida {
+    margin: 15px 0 5px 0;
+    padding: 5px;
+    width: 172px;
+    height: 100px;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+
+li {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+}
+
+.resultados {
+    color: black;
+    text-align: left;
+    margin: 15px 0 20px 0;
+}
