@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css" type="text/css">
-        <title>Analisador de Números</title>
-    </head>
-    <body>
-        <header>
-            <h1>Analisador de Números</h1>
-        </header>
 
-        <main>
-            <section>
-                <label for="entrada">Número (entre 1 e 100):</label>
-                <input type="number" id="entrada">
-                <button>Adicionar</button>
-            </section>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Analisador de Números</title>
+</head>
 
-            <section>
-                <ul id="saida">  
-                </ul>
-                <button>Finalizar</button>
-            </section>
+<body>
+    <header>
+        <h1>Analisador de Números</h1>
+    </header>
 
-            <section id="resultado">
+    <main>
+        <section>
+            <label for="entrada">Número (entre 1 e 100):</label>
+            <input type="number" id="entrada">
+            <button>Adicionar</button>
+        </section>
 
-            </section>
-        </main>
+        <section>
+            <ul id="saida">
+            </ul>
+            <button>Finalizar</button>
+        </section>
 
-        <footer>
-            <p>&copy;Estudonauta</p>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+        <section id="resultado">
+            <p id="total" class="resultados"></p>
+            <p id="maior" class="resultados"></p>
+            <p id="menor" class="resultados"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;Estudonauta</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
 </html>

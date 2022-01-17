@@ -1,29 +1,40 @@
 let btn_entrada = document.getElementsByTagName('button')[0];
 let btn_saida = document.getElementsByTagName('button')[1];
-let cont = null;
-let box_resultado = document.querySelector('#resultado');
-let resultado = document.createElement('p');
-resultado.setAttribute('class', 'resultados');
-box_resultado.appendChild(resultado);
+let total = document.querySelector('#total');
+let maior = document.querySelector('#maior');
+let menor = document.querySelector('#menor');
+let n_maior = null;
+let n_menor = null;
+let numero = null;
+let cont = 0;
+let colecao_numero = [];
+
 btn_entrada.addEventListener('click', entrada);
+btn_saida.addEventListener('click', finalizar);
+
+
 
 
 function entrada() {
-    cont +=  1; 
-    let numero = Number(document.querySelector('#entrada').value)
-    let colecao = [
-        numero,
-    ]
-    let box_saida = document.querySelector('#saida');
-    let saida = document.createElement('li');
-    btn_saida.addEventListener('click', finalizar)
-    box_saida.appendChild(saida);
+    let saida = document.querySelector('#saida');
+    numero = Number(document.querySelector('#entrada').value)
+    colecao_numero.push(numero);
+    saida.innerHTML += `<li>Valor ${numero} cadastrado.</li>`;
 
+    if (cont == 0) {
+        n_maior = colecao_numero[cont];
+        n_menor = colecao_numero[cont];
+    } else if (colecao_numero[cont] > n_maior) {
+        n_maior = colecao_numero[cont];
+    } else if (colecao_numero[cont] < n_menor) {
+        n_menor = colecao_numero[cont];
+    }
 
-    saida.innerHTML = `Valor ${numero} cadastrado.`;
-
-    function finalizar() {
-    resultado.innerHTML = `Ao todo, temos ${cont} números cadastrados.`;
+    cont++
 }
-}
 
+function finalizar() {
+    total.innerHTML = `Ao todo, temos ${colecao_numero.length} números cadastrados.`;
+    maior.innerHTML = `O maior número cadastrado foi ${n_maior}.`;
+    menor.innerHTML = `O menor número cadastrado foi ${n_menor}.`;
+}
