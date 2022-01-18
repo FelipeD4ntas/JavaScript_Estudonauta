@@ -1,47 +1,64 @@
 let btn_entrada = document.getElementsByTagName('button')[0];
 let btn_saida = document.getElementsByTagName('button')[1];
-let total = document.querySelector('#total');
-let maior = document.querySelector('#maior');
-let menor = document.querySelector('#menor');
-let soma = document.querySelector('#soma');
-let media = document.querySelector('#media');
-let n_maior = null;
-let n_menor = null;
-let numero = null;
+let resultado = document.querySelector('#resultado');
+let maior = null;
+let menor = null;
+let media = null;
 let cont = 0;
-let soma_total = 0;
-let media_total = null;
+let soma = 0;
 let colecao_numero = [];
 
 btn_entrada.addEventListener('click', entrada);
 btn_saida.addEventListener('click', finalizar);
 
-
-
+function encontrado(colecao, numero_teste) {
+    let encontrado = false;
+    for(const pos in colecao) {
+        if (numero_teste == colecao[pos]) {
+            encontrado = true
+            return encontrado
+        }
+    }
+}
 
 function entrada() {
-    let saida = document.querySelector('#saida');
-    numero = Number(document.querySelector('#entrada').value);
-    soma_total += numero;
-    colecao_numero.push(numero);
-    saida.innerHTML += `<li>Valor ${numero} cadastrado.</li>`;
+    let numero_txt = document.querySelector('#entrada');
+    if (numero_txt.value.length == 0 || numero_txt.value > 100 || numero_txt.value <= 0 || encontrado(colecao_numero, numero_txt.value) == true) {
+        alert(`Valor inválido ou já se encontra na lista.`)
+    } else {
+        let numero = Number(numero_txt.value);
+        let saida = document.querySelector('#saida');
+        soma += numero;
+        colecao_numero.push(numero);
+        saida.innerHTML += `<li>Valor ${numero} cadastrado.</li>`;
+        resultado.innerHTML = '';
 
-    if (cont == 0) {
-        n_maior = colecao_numero[cont];
-        n_menor = colecao_numero[cont];
-    } else if (colecao_numero[cont] > n_maior) {
-        n_maior = colecao_numero[cont];
-    } else if (colecao_numero[cont] < n_menor) {
-        n_menor = colecao_numero[cont];
+        if (cont == 0) {
+            maior = colecao_numero[cont];
+            menor = colecao_numero[cont];
+        } else if (colecao_numero[cont] > maior) {
+            maior = colecao_numero[cont];
+        } else if (colecao_numero[cont] < menor) {
+            menor = colecao_numero[cont];
+        }
+
+        media = soma / colecao_numero.length;
+        cont++
     }
-    media_total = soma_total / colecao_numero.length;
-    cont++
+    numero_txt.value = '';
+    numero_txt.focus();
 }
 
 function finalizar() {
-    total.innerHTML = `Ao todo, temos ${colecao_numero.length} números cadastrados.`;
-    maior.innerHTML = `O maior número cadastrado foi ${n_maior}.`;
-    menor.innerHTML = `O menor número cadastrado foi ${n_menor}.`;
-    soma.innerHTML = `Somando todos os valores, temos ${soma_total}.`;
-    media.innerHTML = `A média dos valores cadastrados é ${media_total.toFixed(2)}.`
-}
+    if (colecao_numero.length == 0) {
+        alert(`Adicionae valores antes de finalizar.`)
+    } else {
+        resultado.innerHTML = '';
+        resultado.innerHTML += `<p class="resultados">Ao todo, temos ${colecao_numero.length} números cadastrados.</p>`;
+        resultado.innerHTML += `<p class="resultados">O maior número cadastrado foi ${maior}.`;
+        resultado.innerHTML += `<p class="resultados">O menor número cadastrado foi ${menor}.</p>`;
+        resultado.innerHTML += `<p class="resultados">Somando todos os valores, temos ${soma}.</p>`;
+        resultado.innerHTML += `<p class="resultados">A média dos valores cadastrados é ${media.toFixed(2)}.</p>`
+    }
+    }
+    
